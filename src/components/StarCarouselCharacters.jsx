@@ -1,5 +1,4 @@
 import React from "react";
-import StarDivider from "./common/StarDivider";
 import styled from "styled-components";
 import { Autoplay, Pagination, Navigation, EffectFade, Parallax } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -48,14 +47,13 @@ const cards = [
 ];
 
 const StarCharacterSectionStyled = styled.section`
-    margin-top: 5%;
-    margin-bottom: 20%;
+    margin-bottom: 3%;
+    padding: 0 3%;
 `;
 
 const StarCarouselCharacters = () => {
     return (
         <StarCharacterSectionStyled>
-            <StarDivider />
             <div className="swiper-container-2">
                 <Swiper
                     modules={[
@@ -133,7 +131,7 @@ const StarCharacterHeightStyled = styled.div`
     border-radius: 0 0 10px 10px;
 `;
 
-const StarCarouselCharacterItem = ({ character, birth, height }) => {
+export const StarCarouselCharacterItem = ({ character, birth, height }) => {
     return (
         <StarCharacterItem>
             <StarCharacterNameStyled>

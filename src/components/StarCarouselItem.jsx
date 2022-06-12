@@ -4,19 +4,28 @@ import { Link } from "react-router-dom";
 
 const CarouselItemWrapperStyled = styled.div`
     position: relative;
+    max-width: 300px;
+    margin: auto;
 
     & a {
         width: fit-content;
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-width: 100%;
+        margin: auto;
+        width: 100%;
+    }
+
+    @media (max-width: 1264px) {
+        max-width: none;
+        width: 350px;
     }
 `;
 
 const CarouselItemImgStyled = styled.img`
-    width: 100%;
     height: 48vh;
+    min-width: 289px;
+    width: 100%;
     border-radius: 10px 10px 0 0;
 
     &::after {
@@ -37,6 +46,7 @@ const CarouselItemImgStyled = styled.img`
 
 const CarouselItemContentStyled = styled.div`
     width: 100%;
+    min-width: 290px;
     color: var(--dark);
 
     > p {

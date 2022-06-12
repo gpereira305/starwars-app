@@ -11,10 +11,13 @@ const StarDividerItem = styled.div`
     &::after {
         content: "";
         position: absolute;
-        width: 100%;
+        width: 75%;
         height: 1px;
         background-color: var(--black);
-        right: 0;
+
+        @media (max-width: 990px) {
+            width: 90%;
+        }
     }
 `;
 
@@ -25,12 +28,16 @@ const StarDividerTitle = styled.h1`
     position: absolute;
     z-index: 1;
     padding: 0 10px;
+
+    @media (max-width: 752px) {
+        font-size: 1.2rem;
+    }
 `;
 
-const StarDivider = () => {
+const StarDivider = ({ title }) => {
     return (
         <StarDividerItem>
-            <StarDividerTitle>Movies</StarDividerTitle>
+            <StarDividerTitle>{title}</StarDividerTitle>
         </StarDividerItem>
     );
 };

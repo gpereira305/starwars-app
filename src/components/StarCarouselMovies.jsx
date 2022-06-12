@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import StarDivider from "./common/StarDivider";
 import StarCarouselItem from "./StarCarouselItem";
-import { Link } from "react-router-dom";
 
 import { Autoplay, Pagination, Navigation, EffectFade, Parallax } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -63,10 +61,13 @@ const posters = [
     },
 ];
 
+const StarCarouselSectionStyled = styled.section`
+    margin-bottom: 10%;
+`;
+
 const StarCarousel = () => {
     return (
-        <section>
-            <StarDivider />
+        <StarCarouselSectionStyled>
             <div className="swiper-container">
                 <Swiper
                     modules={[
@@ -76,11 +77,11 @@ const StarCarousel = () => {
                         EffectFade,
                         Parallax,
                     ]}
-                    autoplay={{ delay: 4000 }}
+                    // autoplay={{ delay: 4000 }}
                     loop={true}
                     speed={700}
                     grabCursor={true}
-                    spaceBetween={40}
+                    spaceBetween={30}
                     slidesPerView={3}
                     navigation={true}
                 >
@@ -97,7 +98,7 @@ const StarCarousel = () => {
                     ))}
                 </Swiper>
             </div>
-        </section>
+        </StarCarouselSectionStyled>
     );
 };
 

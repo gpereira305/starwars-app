@@ -11,22 +11,36 @@
     -o-border-radius: 25px;
 }
 
+.swiper-container-3 {
+    position: relative;
+}
+
 .swiper-container .swiper-button-prev {
-    left: 10%;
+    left: 17%;
 }
 
 .swiper-container .swiper-button-next {
-    right: 10%;
+    right: 17%;
 }
 
 .swiper-container-2 .swiper-button-prev {
-    left: 10%;
-    top: 107%;
+    left: 17%;
+    top: 118%;
 }
 
 .swiper-container-2 .swiper-button-next {
-    right: 10%;
-    top: 107%;
+    right: 17%;
+    top: 118%;
+}
+
+.swiper-container-3 .swiper-button-next {
+    right: 8%;
+    top: 48%;
+}
+
+.swiper-container-3 .swiper-button-prev {
+    left: 8%;
+    top: 48%;
 }
 
 .swiper-button-next:after,
@@ -42,4 +56,102 @@
 .swiper {
     position: initial;
     width: 85%;
+}
+
+.swiper-horizontal {
+    width: 75%;
+}
+
+@media (max-width: 1264px) {
+    .swiper-slide {
+        width: 360px !important;
+    }
+
+    .swiper-container .swiper-button-next {
+        right: 15%;
+    }
+
+    .swiper-container .swiper-button-prev {
+        left: 15%;
+    }
+
+    .swiper-container-2 .swiper-button-prev {
+        top: 114%;
+        left: 15%;
+    }
+
+    .swiper-container-2 .swiper-button-next {
+        top: 114%;
+        right: 15%;
+    }
+
+    .swiper-container-3 .swiper-button-prev {
+        left: 6%;
+    }
+
+    .swiper-container-3 .swiper-button-next {
+        right: 6%;
+    }
+
+    .swiper-container-3 .swiper-button-prev,
+    .swiper-container-3 .swiper-button-next {
+        top: 50%;
+    }
+}
+
+@media (max-width: 990px) {
+    .swiper-container-2 .swiper-button-next,
+    .swiper-container .swiper-button-next {
+        right: 9%;
+    }
+    .swiper-container-2 .swiper-button-prev,
+    .swiper-container .swiper-button-prev {
+        left: 9%;
+    }
+
+    .swiper-container-2 .swiper-button-prev,
+    .swiper-container-2 .swiper-button-next {
+        top: 124%;
+    }
+
+    .swiper-container-3 .swiper-button-next {
+        right: 5%;
+    }
+    .swiper-container-3 .swiper-button-prev {
+        left: 5%;
+    }
+
+    .swiper-container-3 .swiper-button-prev,
+    .swiper-container-3 .swiper-button-next {
+        top: 35%;
+    }
+}
+
+@media (max-width: 724px) {
+    .swiper-container .swiper-button-next {
+        right: 5%;
+    }
+    .swiper-container .swiper-button-prev {
+        left: 5%;
+    }
+
+    .swiper-container-2 .swiper-button-prev {
+        top: 110%;
+        left: 5%;
+    }
+
+    .swiper-container-2 .swiper-button-next {
+        top: 110%;
+        right: 5%;
+    }
+
+    .swiper-container-2 .swiper-button-next,
+    .swiper-container-2 .swiper-button-prev {
+        top: 120%;
+    }
+
+    .swiper-container-3 .swiper-button-next,
+    .swiper-container-3 .swiper-button-prev {
+        top: 42%;
+    }
 }

@@ -6,9 +6,7 @@ export const GlobalStyled = createGlobalStyle`
    text-decoration: none;  
    font-weight: normal;  
    margin: 0;
-   padding: 0;  
-   /* letter-spacing: 1.2px;  */
-   /* line-height: 1.2; */
+   padding: 0;   
   
  }
 
@@ -18,9 +16,10 @@ export const GlobalStyled = createGlobalStyle`
   --black: #000000;
   --dark: #505050;
   --gold: #FFC700;
-  --green: #00FF66;
+  --green:#00FF66;
   /* --lg-gray: #D4D4D4; */
   --lg-gray: #CFCFCF; 
+  --lg-gray2: #c5c5c5; 
   --dk-gray: #A1A1A1;
 
   --fira: 'Fira Code', monospace;

@@ -1,17 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StarHeaderContainer = styled.header`
     background-color: var(--black);
     height: 10vh;
+
+    @media (max-width: 1016px) {
+        height: 15vh;
+    }
 `;
 
 const StarHeaderNav = styled.nav`
     display: flex;
     height: 100%;
     justify-content: space-between;
-    padding: 0 10%;
+    padding: 0 17%;
     align-items: center;
+
+    @media (max-width: 990px) {
+        padding: 0 5%;
+    }
 
     @media (max-width: 660px) {
         flex-direction: column;
@@ -25,7 +34,7 @@ const StarHeaderNavTitle = styled.div`
         font-weight: 600;
         font-size: 2rem;
 
-        @media (max-width: 860px) {
+        @media (max-width: 1016px) {
             font-size: 1.5rem;
         }
     }
@@ -70,8 +79,9 @@ const StarHeader = () => {
         <StarHeaderContainer>
             <StarHeaderNav>
                 <StarHeaderNavTitle>
-                    <h1>Star Wars Universe</h1>
-                    {/* <h1 className="mobile">S. W. U.</h1> */}
+                    <Link to={"/"} title="Logo | Home">
+                        <h1>Star Wars Universe</h1>
+                    </Link>
                 </StarHeaderNavTitle>
                 <StarHeaderNavInput>
                     <input type="search" placeholder="Pesquisar Personagens" />
