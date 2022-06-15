@@ -1,38 +1,111 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
+import "./styles/custom.css";
+import { GlobalStyled } from "./styles/starStyled";
 import StarHomePage from "./pages/StarHomePage";
 import StarDetailsPage from "./pages/StarDetailsPage";
-import UserNotFound from "./pages/StarNotFound";
-import { GlobalStyled } from "./styles/starStyled";
 import StarHeader from "./components/StarHeader";
-import "./styles/custom.css";
 import StarFooter from "./components/StarFooter";
+import { URL_FILMS, URL_PEOPLE } from "./api";
+import { SwapiContext } from "./SwapiContext";
+import { images } from "./utils";
+import axios from "axios";
 
-const AppContainer = styled.div`
-    /* width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5% auto 0; */
-`;
+const AppContainer = styled.div``;
 
 function App() {
+    const [movies, setMovies] = useState([]);
+    const [people, setPeople] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [query, setQuery] = useState("");
+
+    useEffect(() => {
+        async function fetchFilms() {
+            const res = await axios.get(URL_FILMS);
+            const data = await res.data.results;
+
+            const database = await data.map(
+                ({
+                    director,
+                    episode_id,
+                    release_date,
+                    title,
+                    producer,
+                    opening_crawl,
+                    characters,
+                }) => ({
+                    director,
+                    episode_id,
+                    release_date,
+                    title,
+                    producer,
+                    opening_crawl,
+                    characters,
+                })
+            );
+            const movieInfo = database.map((obj) => {
+                const addedImg = images.find((el) => el.id === obj.episode_id);
+                if (addedImg) {
+                    obj.img = addedImg.img;
+                }
+                return obj;
+            });
+            localStorage.setItem("movies", JSON.stringify(movieInfo));
+            setMovies(movieInfo);
+            setLoading(false);
+        }
+
+        async function fetchPeople() {
+            const res = await axios.get(URL_PEOPLE);
+            const data = await res.data.results;
+            localStorage.setItem("people", JSON.stringify(data));
+            setPeople(data);
+            setLoading(false);
+        }
+
+        fetchFilms();
+        fetchPeople();
+    }, []);
+
+    useEffect(() => {
+        const localFilms = JSON.parse(localStorage.getItem("movies"));
+        const localPeople = JSON.parse(localStorage.getItem("people"));
+        if (localFilms) {
+            setMovies(localFilms);
+            setLoading(false);
+        } else if (localPeople) {
+            setPeople(localPeople);
+            setLoading(false);
+        }
+    }, []);
+
     return (
         <>
             <AppContainer>
-                <BrowserRouter>
-                    <StarHeader />
-                    <Routes>
-                        <Route exact path="/" element={<StarHomePage />} />
-                        <Route
-                            exact
-                            path="/:movieId"
-                            element={<StarDetailsPage />}
-                        />
-                        <Route path="*" element={<UserNotFound />} />
-                    </Routes>
-                    <StarFooter />
-                </BrowserRouter>
+                <SwapiContext.Provider
+                    value={{
+                        movies,
+                        people,
+                        loading,
+                        setLoading,
+                        query,
+                        setQuery,
+                    }}
+                >
+                    <BrowserRouter>
+                        <StarHeader />
+                        <Routes>
+                            <Route exact path="/" element={<StarHomePage />} />
+                            <Route
+                                exact
+                                path="/:episode_id"
+                                element={<StarDetailsPage />}
+                            />
+                        </Routes>
+                        <StarFooter />
+                    </BrowserRouter>
+                </SwapiContext.Provider>
             </AppContainer>
             <GlobalStyled />
         </>

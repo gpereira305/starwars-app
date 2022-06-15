@@ -2,13 +2,20 @@
 .swiper-button-prev {
     background-color: var(--black);
     color: var(--white);
-    width: 50px;
-    height: 50px;
+    width: 50px !important;
+    height: 50px !important;
     border-radius: 25px;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    content: "next";
+    color: #fff;
+    font-size: 1.3rem !important;
 }
 
 .swiper-container-3 {
@@ -55,18 +62,44 @@
 
 .swiper {
     position: initial;
-    width: 85%;
 }
 
 .swiper-horizontal {
     width: 75%;
 }
 
-@media (max-width: 1264px) {
+.swiper-container-2 .swiper-horizontal {
+    width: 78%;
+}
+
+.swiper-container-2 .swiper-slide {
+    width: 362px !important;
+}
+
+.item {
+    height: 200px;
+    padding: 2px;
+    box-sizing: border-box;
+    font-size: 0;
+    color: rgba(0, 0, 0, 0);
+}
+.alice-carousel__stage {
+    display: flex;
+    gap: 20px;
+}
+
+.alice-carousel__stage-item {
+    width: 50%;
+    background-color: black;
+}
+
+@media (max-width: 1450px) {
     .swiper-slide {
         width: 360px !important;
     }
+}
 
+@media (max-width: 1264px) {
     .swiper-container .swiper-button-next {
         right: 15%;
     }

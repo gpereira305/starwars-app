@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -88,20 +88,36 @@ const CarouselItemDirectorStyled = styled.div`
     border-radius: 0px 0px 10px 10px;
 `;
 
-const StarCarouselItem = ({ image, movie, release, director, id }) => {
+const StarCarouselItem = ({
+    director,
+    release_date,
+    img,
+    title,
+    index,
+    episode_id,
+}) => {
+    // função para iniciar no topo da página
+    const jumpToTop = () => {
+        window.scrollTo({
+            top: 0,
+        });
+    };
+
     return (
         <CarouselItemWrapperStyled>
-            <Link to={`/${id}`}>
-                <CarouselItemImgStyled src={image} alt={movie} title={movie} />
+            <Link to={`/${index + 1}`} onClick={jumpToTop}>
+                <CarouselItemImgStyled src={img} alt={title} title={title} />
 
                 <CarouselItemContentStyled>
                     <CarouselItemNameStyled>
-                        <p>{movie}</p>
+                        <p>{title}</p>
                     </CarouselItemNameStyled>
 
                     <CarouselItemReleaseStyled>
                         <p>Data de Lançamento</p>
-                        <span>{release}</span>
+                        <span>
+                            {release_date?.split("-")?.reverse()?.join("/")}
+                        </span>
                     </CarouselItemReleaseStyled>
                     <CarouselItemDirectorStyled>
                         <p>Diretor</p>

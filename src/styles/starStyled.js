@@ -29,11 +29,8 @@ export const GlobalStyled = createGlobalStyle`
 html,
 body {  
   box-sizing: border-box;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  font-family: var(--fira);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; 
+  font-family: var(--fira); 
 
 
    .fade-in {

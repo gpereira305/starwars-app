@@ -1,104 +1,89 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import StarCarouselItem from "./StarCarouselItem";
-
 import { Autoplay, Pagination, Navigation, EffectFade, Parallax } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-import image1 from "../assets/images/episode_1.jpg";
-import image2 from "../assets/images/episode_2.webp";
-import image3 from "../assets/images/episode_3.jpg";
-import image4 from "../assets/images/episode_4.webp";
-import image5 from "../assets/images/episode_5.jpg";
-import image6 from "../assets/images/episode_6.jpg";
-
-const posters = [
-    {
-        image: image1,
-        movie: "Filme-1",
-        release: "{{data_lançamento}}",
-        director: "{{nome_diretor}}",
-        id: 1,
-    },
-    {
-        image: image2,
-        movie: "Filme-2",
-        release: "{{data_lançamento}}",
-        director: "{{nome_diretor}}",
-        id: 2,
-    },
-    {
-        image: image3,
-        movie: "Filme-3",
-        release: "{{data_lançamento}}",
-        director: "{{nome_diretor}}",
-        id: 3,
-    },
-    {
-        image: image4,
-        movie: "Filme-4",
-        release: "{{data_lançamento}}",
-        director: "{{nome_diretor}}",
-        id: 4,
-    },
-    {
-        image: image5,
-        movie: "Filme-5",
-        release: "{{data_lançamento}}",
-        director: "{{nome_diretor}}",
-        id: 5,
-    },
-    {
-        image: image6,
-        movie: "Filme-6",
-        release: "{{data_lançamento}}",
-        director: "{{nome_diretor}}",
-        id: 6,
-    },
-];
+import { SwapiContext } from "../SwapiContext";
+import StarCarouselItem from "./StarCarouselItem";
+import StarLoading from "./common/StarLoading";
 
 const StarCarouselSectionStyled = styled.section`
-    margin-bottom: 10%;
+    margin-bottom: 2%;
+    min-height: 50vh;
 `;
 
 const StarCarousel = () => {
+    const { movies, loading, query } = useContext(SwapiContext);
+
     return (
-        <StarCarouselSectionStyled>
-            <div className="swiper-container">
-                <Swiper
-                    modules={[
-                        Autoplay,
-                        Pagination,
-                        Navigation,
-                        EffectFade,
-                        Parallax,
-                    ]}
-                    // autoplay={{ delay: 4000 }}
-                    loop={true}
-                    speed={700}
-                    grabCursor={true}
-                    spaceBetween={30}
-                    slidesPerView={3}
-                    navigation={true}
-                >
-                    {posters.map(({ image, movie, release, director, id }) => (
-                        <SwiperSlide key={id}>
-                            <StarCarouselItem
-                                image={image}
-                                movie={movie}
-                                release={release}
-                                director={director}
-                                id={id}
-                            />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-        </StarCarouselSectionStyled>
+        <>
+            {!loading ? (
+                <StarCarouselSectionStyled>
+                    <div className="swiper-container">
+                        <Swiper
+                            modules={[
+                                Autoplay,
+                                Pagination,
+                                Navigation,
+                                EffectFade,
+                                Parallax,
+                            ]}
+                            // autoplay={{ delay: 4000 }}
+                            loop={true}
+                            speed={700}
+                            grabCursor={true}
+                            spaceBetween={30}
+                            slidesPerView={3}
+                            navigation={true}
+                        >
+                            {movies
+                                .filter((m) => {
+                                    if (query === "") {
+                                        return m;
+                                    } else if (
+                                        m.title
+                                            .toLowerCase()
+                                            .includes(query.toLowerCase())
+                                    ) {
+                                        return m;
+                                    }
+                                })
+                                .map(
+                                    (
+                                        {
+                                            director,
+                                            episode_id,
+                                            release_date,
+                                            title,
+                                            img,
+                                            id,
+                                        },
+                                        index
+                                    ) => (
+                                        <SwiperSlide key={index}>
+                                            <StarCarouselItem
+                                                director={director}
+                                                episode_id={episode_id}
+                                                release_date={release_date}
+                                                title={title}
+                                                img={img}
+                                                index={index}
+                                            />
+                                        </SwiperSlide>
+                                    )
+                                )}
+                        </Swiper>
+                    </div>
+                </StarCarouselSectionStyled>
+            ) : (
+                <StarCarouselSectionStyled>
+                    <StarLoading />
+                </StarCarouselSectionStyled>
+            )}
+        </>
     );
 };
 

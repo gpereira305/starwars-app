@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { SwapiContext } from "../SwapiContext";
 
 const StarHeaderContainer = styled.header`
     background-color: var(--black);
@@ -75,6 +76,8 @@ const StarHeaderNavInput = styled.div`
 `;
 
 const StarHeader = () => {
+    const { query, setQuery } = useContext(SwapiContext);
+
     return (
         <StarHeaderContainer>
             <StarHeaderNav>
@@ -84,7 +87,11 @@ const StarHeader = () => {
                     </Link>
                 </StarHeaderNavTitle>
                 <StarHeaderNavInput>
-                    <input type="search" placeholder="Pesquisar Personagens" />
+                    <input
+                        type="search"
+                        placeholder="Pesquisar Personagens"
+                        onChange={(event) => setQuery(event.target.value)}
+                    />
                 </StarHeaderNavInput>
             </StarHeaderNav>
         </StarHeaderContainer>

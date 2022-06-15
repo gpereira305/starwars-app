@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import moviePoster from "../assets/images/episode_1.jpg";
 import styled from "styled-components";
+import { SwapiContext } from "../SwapiContext";
+import { URL_FILMS } from "../api";
 
 const StarBannerSectionStyled = styled.section`
     display: flex;
@@ -66,7 +69,7 @@ const StarBannerInfoStyled = styled.div`
 const StarBannerInfoReleaseStyled = styled.div`
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     > h3 {
         font-size: 1rem;
@@ -101,10 +104,12 @@ const StarBannerInfoProductionStyled = styled.div`
 `;
 
 const StarBannerStaffStyled = styled.div`
+    margin-bottom: 10px;
+
     > h3 {
         font-size: 1rem;
         font-weight: 500;
-        margin-bottom: 8px;
+        margin-bottom: 2px;
     }
 
     > p {
@@ -136,47 +141,39 @@ const StarBannerImageStyled = styled.div`
     }
 `;
 
-const StarBanner = () => {
+const StarBanner = ({ movie }) => {
+    const { opening_crawl, producer, director, release_date, title, img } =
+        movie;
+
     return (
         <StarBannerSectionStyled>
             <StarBannerDescriptionStyled>
                 <StarBannerTextStyled>
                     <h3>Descrição</h3>
-                    <p>
-                        Conteúdo do campo aqui. Exemplo do filme 1: Turmoil has
-                        engulfed the Galactic Republic. The taxation of trade
-                        routes to outlying star systems is in dispute. Hoping to
-                        resolve the matter with a blockade of deadly
-                        battleships, the greedy Trade Federation has stopped all
-                        shipping to the small planet of Naboo. While the
-                        Congress of the Republic endlessly debates this alarming
-                        chain of events, the Supreme Chancellor has secretly
-                        dispatched two Jedi Knights, the guardians of peace and
-                        justice in the galaxy, to settle the conflict....
-                    </p>
+                    <p>{opening_crawl}</p>
                 </StarBannerTextStyled>
 
                 <StarBannerInfoStyled>
                     <StarBannerInfoReleaseStyled>
                         <h3>Data de lançamento</h3>
-                        <p>Release date</p>
+                        <p>{release_date?.split("-")?.reverse()?.join("/")}</p>
                     </StarBannerInfoReleaseStyled>
 
                     <StarBannerInfoProductionStyled>
                         <StarBannerStaffStyled>
                             <h3>Diretor</h3>
-                            <p>diretor</p>
+                            <p>{director}</p>
                         </StarBannerStaffStyled>
                         <StarBannerStaffStyled>
                             <h3>Produtor</h3>
-                            <p>producer</p>
+                            <p>{producer}</p>
                         </StarBannerStaffStyled>
                     </StarBannerInfoProductionStyled>
                 </StarBannerInfoStyled>
             </StarBannerDescriptionStyled>
 
             <StarBannerImageStyled>
-                <img src={moviePoster} alt="" title="" />
+                <img src={img} alt={title} title={title} />
             </StarBannerImageStyled>
         </StarBannerSectionStyled>
     );
