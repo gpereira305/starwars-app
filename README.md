@@ -17,8 +17,7 @@ Essa aplicação possui 2 páginas, sendo a homepage composta por um carrosel co
 
 Ao clicar sobre a imagem do carrosel o usuário será levado para segunda página onde contém detalhes sobre o filme e elenco.
 Também há possibilidade de fazer um comentário sobre o filme.
-
-Esse projeto se encontra hospedado no seguinte endereço: https://realty-estate-app.vercel.app
+ 
 
 ## **Tecnologias usadas**
 
