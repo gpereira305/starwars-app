@@ -1,13 +1,13 @@
 ## Table of contents
 
--   [General info](#general-info)
--   [Installation](#Installation)
--   [Features](#Features)
--   [Technologies](#technologies)
+-   [General info](#Informações sobre o projeto)
+-   [Installation](#Instalação)
+-   [Features](#Funcionalidades)
+-   [Technologies](#tecnoilogias)
 -   [License](#License)
 -   [Demo](#Demo)
 
-## General info
+## **Informações sobre o projeto**
 
 Para a construção desse app foram utilizadas as seguintes tecnologias como React js, Axios, Styled-Components e Swiper.
 
@@ -29,17 +29,17 @@ Esse projeto se encontra hospedado no seguinte endereço: https://realty-estate-
 -   <a href="https://swiperjs.com/">Swiper JS</a>
 <hr>
 
-## Instalação
+## **Instalação**
 
 Para poder rodar esse app localmente é necessário o NodeJS >= v14 instalado em sua máquina, um editor de texto de sua preferência.
 Na raiz do projeto execute o comando 'npm install' e após todos os arquivos necessários serem baixados, dentro do mesmo diretório execute 'npm start' para que o projeto se inicie.
 Após a execução do comando abra um navegador de sua preferência e digite 'http://localhost:3000' para visualizar o projeto na web.
 
-## License
+## **License**
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-## Demo
+## **Demo**
 
 \*HomePage
 <img src="./src/assets/images/home.png" />
