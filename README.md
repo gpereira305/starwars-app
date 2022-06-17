@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+## Table of contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-   [General info](#general-info)
+-   [Installation](#Installation)
+-   [Features](#Features)
+-   [Technologies](#technologies)
+-   [License](#License)
+-   [Demo](#Demo)
 
-## Available Scripts
+## General info
 
-In the project directory, you can run:
+Para a construção desse app foram utilizadas as seguintes tecnologias como React js, Axios, Styled-Components e Swiper.
 
-### `npm start`
+## **Funcionalidades**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Essa aplicação possui 2 páginas, sendo a homepage composta por um carrosel com os filmes clássicos de Star Wars e logo abaixo contém outro carrosel contendo os personagens mais icônicos dessa famos franquia.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Ao clicar sobre a imagem do carrosel o usuário será levado para segunda página onde contém detalhes sobre o filme e elenco.
+Também há possibilidade de fazer um comentário sobre o filme.
 
-### `npm test`
+Esse projeto se encontra hospedado no seguinte endereço: https://realty-estate-app.vercel.app
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## **Tecnologias usadas**
 
-### `npm run build`
+-   <a href="https://pt-br.reactjs.org/">React</a>
+-   <a href="https://reach.tech/router/">Reach Router</a>
+-   <a href="https://axios-http.com/ptbr/docs/intro">Axios</a>
+-   <a href="https://styled-components.com/">Styled-components</a>
+-   <a href="https://swiperjs.com/">Swiper JS</a>
+<hr>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instalação
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para poder rodar esse app localmente é necessário o NodeJS >= v14 instalado em sua máquina, um editor de texto de sua preferência.
+Na raiz do projeto execute o comando 'npm install' e após todos os arquivos necessários serem baixados, dentro do mesmo diretório execute 'npm start' para que o projeto se inicie.
+Após a execução do comando abra um navegador de sua preferência e digite 'http://localhost:3000' para visualizar o projeto na web.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
+[MIT](https://choosealicense.com/licenses/mit/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Demo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+\*HomePage
+<img src="./src/assets/images/home.png" />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src="./src/assets/images/home2.png" />
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+\*Detalhes
+<img src="./src/assets/images/details.png" />
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+\*Mobile
+<img src="./src/assets/images/mobile.png" />
