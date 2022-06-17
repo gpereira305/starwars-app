@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import "./styles/custom.css";
-import { GlobalStyled } from "./styles/starStyled";
+import { GlobalStyled } from "./styles/starGlobalStyled";
 import StarHomePage from "./pages/StarHomePage";
 import StarDetailsPage from "./pages/StarDetailsPage";
 import StarHeader from "./components/StarHeader";
@@ -25,6 +25,7 @@ function App() {
             const res = await axios.get(URL_FILMS);
             const data = await res.data.results;
 
+            // desestruturação dos objetos que serão utilizados
             const database = await data.map(
                 ({
                     director,
@@ -44,6 +45,7 @@ function App() {
                     characters,
                 })
             );
+            // inserççao das imagens em cada objeto de filme
             const movieInfo = database.map((obj) => {
                 const addedImg = images.find((el) => el.id === obj.episode_id);
                 if (addedImg) {

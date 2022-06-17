@@ -5,7 +5,7 @@ import StarCarouselCharacters from "../components/StarCarouselCharacters";
 import StarCarouselMovies from "../components/StarCarouselMovies";
 
 const StarMain = styled.main`
-    padding: 0 10%;
+    padding: 0 3%;
 
     @media (max-width: 990px) {
         padding: 5%;

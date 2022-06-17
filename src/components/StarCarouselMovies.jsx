@@ -10,6 +10,7 @@ import { SwapiContext } from "../SwapiContext";
 import StarCarouselItem from "./StarCarouselItem";
 import StarLoading from "./common/StarLoading";
 
+// styles
 const StarCarouselSectionStyled = styled.section`
     margin-bottom: 2%;
     min-height: 50vh;
@@ -31,7 +32,7 @@ const StarCarousel = () => {
                                 EffectFade,
                                 Parallax,
                             ]}
-                            // autoplay={{ delay: 4000 }}
+                            autoplay={{ delay: 4000 }}
                             loop={true}
                             speed={700}
                             grabCursor={true}
@@ -39,6 +40,7 @@ const StarCarousel = () => {
                             slidesPerView={3}
                             navigation={true}
                         >
+                            {/* filtro para pesquisa */}
                             {movies
                                 .filter((m) => {
                                     if (query === "") {

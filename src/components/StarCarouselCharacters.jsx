@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+
 import { Autoplay, Pagination, Navigation, EffectFade, Parallax } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,60 +8,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { SwapiContext } from "../SwapiContext";
 import StarLoading from "./common/StarLoading";
-
-const StarCharacterSectionStyled = styled.section`
-    padding: 0 3%;
-`;
-
-const StarCharacterItem = styled.div`
-    border-radius: 10px;
-    width: 100%;
-
-    > p {
-        font-size: 0.875rem;
-    }
-
-    p {
-        font-size: 0.75rem;
-    }
-
-    span {
-        font-size: 0.625rem;
-    }
-`;
-
-const StarCharacterWrapperStyled = styled.div`
-    width: 333px;
-    border-radius: 10px;
-`;
-
-const StarCharacterNameStyled = styled.div`
-    background-color: var(--gold);
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px 10px 0px 0px;
-
-    > p {
-        color: var(--white);
-        font-size: 0.875rem;
-        font-weight: 500;
-    }
-`;
-
-const StarCharacterInfoStyled = styled.div`
-    height: 12vh;
-    border: 1px solid var(--lg-gray);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    border-radius: 0 0 10px 10px;
-    border-top: none;
-`;
-
-const StarCharacterBirthStyled = styled.div`
-    padding: 5px 20px 5px;
-`;
+import {
+    StarCharacterSectionStyled,
+    StarCharacterItem,
+    StarCharacterWrapperStyled,
+    StarCharacterNameStyled,
+    StarCharacterInfoStyled,
+    StarCharacterBirthStyled,
+} from "../styles/StarCarouselCharacterStyled";
 
 const StarCarouselCharacters = () => {
     const { people, loading } = useContext(SwapiContext);
@@ -79,7 +33,7 @@ const StarCarouselCharacters = () => {
                                 EffectFade,
                                 Parallax,
                             ]}
-                            // autoplay={{ delay: 4000 }}
+                            autoplay={{ delay: 4000 }}
                             loop={true}
                             speed={700}
                             grabCursor={true}

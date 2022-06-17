@@ -14,7 +14,7 @@ const StarLoadingIconStyled = styled.div`
     }
 `;
 
-const StarLoading = ({ type, color, balls }) => {
+const StarLoading = () => {
     return (
         <StarLoadingIconStyled>
             <LoadingIcons.Oval

@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyled = createGlobalStyle`
  * {
@@ -16,8 +16,7 @@ export const GlobalStyled = createGlobalStyle`
   --black: #000000;
   --dark: #505050;
   --gold: #FFC700;
-  --green:#00FF66;
-  /* --lg-gray: #D4D4D4; */
+  --green:#00FF66; 
   --lg-gray: #CFCFCF; 
   --lg-gray2: #c5c5c5; 
   --dk-gray: #A1A1A1;
